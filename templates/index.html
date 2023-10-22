@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Make it compatible to mobile devices -->
+
+    <title>Heart Disease Percent</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body style="background: #fcf6f6">
+    <div class="container">
+      <h1 style="color: rgb(21, 18, 21)">
+        🔴🟡🟢Travelinsurance purchase prediction🌼
+      </h1>
+
+      <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <input
+          type="text"
+          name="Age"
+          placeholder="enter age"
+          required="required"
+        />
+        <p>
+          <input
+            type="text"
+            name="Graduateornot"
+            placeholder="entergraduateornot"
+            required="required"
+          />
+        </p>
+        <p>
+          <input
+            type="text"
+            name="Annualincome"
+            placeholder="enter annualincome"
+            required="required"
+          />
+        </p>
+        <p>
+          <input
+            type="text"
+            name="Familymembers"
+            placeholder="enter familymbrs"
+            required="required"
+          />
+        </p>
+        <p>
+          <input
+            type="text"
+            name="Chronicdiseases"
+            placeholder="enter chronic"
+            required="required"
+          />
+        </p>
+        <p>
+          <input
+            type="text"
+            name="Frequentflyer"
+            placeholder="enter flying"
+            required="required"
+          />
+        </p>
+        <p>
+          <input
+            type="text"
+            name="Evertravelledabroad"
+            placeholder="enter travelabroad"
+            required="required"
+          />
+        </p>
+        <p>
+          <button type="submit" class="btn btn-primary btn-block btn-large">
+            Predict🚀
+          </button>
+        </p>
+      </form>
+
+      <br />
+      <br />
+      <h4 style="color: rgb(14, 13, 14)">{{ prediction_text }}</h4>
+    </div>
+  </body>
+</html>
