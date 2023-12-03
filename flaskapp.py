@@ -15,6 +15,13 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 pipeline = joblib.load('preproc_pipeline.pkl')
 
+#
+# Define the column_fct and categorical_cols variables
+column_fct = ["ChronicDiseases"]
+categorical_cols = ["Employment Type", "GraduateOrNot", "ChronicDiseases", "FrequentFlyer", "EverTravelledAbroad"]
+numeric_cols = ["Age","AnnualIncome","FamilyMembers"]
+
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -30,10 +37,15 @@ def predict():
     Frequentflyer = str(request.form['FrequentFlyer'])
     Evertravelledabroad = str(request.form['EverTravelledAbroad'])
 
-    # Create a DataFrame from the input values
-    query_df = np.array([[Age, Employment_type, Graduateornot, AnnulIncome,Familymembers, Chronicdiseases, Frequentflyer, Evertravelledabroad]])
     
-    df = pipeline.fit_tranform(query_df)
+    # Create a DataFrame from the input values
+    query_df = pd.DataFrame([[Age, Employment_type, Graduateornot, Annualincome, Familymembers, Chronicdiseases, Frequentflyer, Evertravelledabroad]],
+                            columns=["Age", "Employment Type", "GraduateOrNot", "AnnualIncome", "FamilyMembers", "ChronicDiseases", "FrequentFlyer", "EverTravelledAbroad"])
+    
+    print("query_df shape:", query_df.shape)
+    
+    df = pipeline.fit_transform(query_df)
+    
 
     # Make the prediction using the loaded model
     prediction = model.predict(df)
