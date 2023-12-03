@@ -44,7 +44,7 @@ def predict():
     
     print("query_df shape:", query_df.shape)
     
-    df = pipeline.fit_transform(query_df)
+    df = pipeline.transform(query_df)
     
 
     # Make the prediction using the loaded model
