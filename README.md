@@ -1,4 +1,8 @@
 # TRAVEL PREDICTION USING ML 
+
+![image](https://github.com/franciskyalo/travelprediction/assets/94622826/b0446c7d-d615-4d2f-8a7e-6e9ca2e5d90c)
+
+
 Project Overview: 
 
 ExploreXperience, a prominent tour company, has been actively offering travel insurance to its customers, particularly in the context of the ongoing Covid-19 pandemic. In an effort to strategically target potential customers interested in purchasing travel insurance post-pandemic, the company is leveraging past sales data for in-depth analysis.
