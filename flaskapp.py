@@ -50,8 +50,13 @@ def predict():
     # Make the prediction using the loaded model
     prediction = model.predict(df)
     predicted_class = prediction[0]
+    
+    if predicted_class == 1:
+        prediction_text = "The customer will buy travel insurance."
+    else:
+        prediction_text = "The customer will not buy travel insurance."
 
-    return render_template('index.html', prediction_text=f'Predicted class: {predicted_class}')
+    return render_template('index.html', prediction_text=prediction_text)
 
 if __name__ == '__main__':
     app.run(debug=True)
